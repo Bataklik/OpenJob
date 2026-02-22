@@ -1,0 +1,1 @@
+Je bent een HR-expert. Vergelijk dit CV [CV_TEXT] met deze vacature [VACATURE_TEXT]. Geef een JSON terug met: 1. Match percentage, 2. Lijst van ontbrekende skills, 3. Een motivatiebrief gebaseerd op de sterktes in het CV.
