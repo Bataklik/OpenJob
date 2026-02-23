@@ -1,5 +1,5 @@
 from pydantic import BaseModel
 
-
-class TargetJobRequest(BaseModel):
-    text:str
+class MatchRequest(BaseModel):
+    cv_text:str
+    vacancy_text:str
