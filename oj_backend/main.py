@@ -1,8 +1,7 @@
 import json
 import re
-
 from fastapi import FastAPI
-from schemas import TargetJobRequest
+from schemas import MatchRequest
 from services.pdf_plumber import plumb_text_from_pdf
 from ollama import chat, ChatResponse
 
@@ -19,49 +18,49 @@ def plumb_pdf():
     return {"pdf_text": text}
 
 @app.post("/match")
-def match_job_to_cv(request: TargetJobRequest):
-    generated_prompt = generate_prompt(request.text, "CV-Burak-M-Balci-2025_NL.pdf")
-    response: ChatResponse = chat(model='deepseek-r1', messages=[{"role": "user", "content": generated_prompt}])
+def match_job_to_cv(request: MatchRequest):
+    cv_content = request.cv_text
+    job_content = request.vacancy_text
 
-    return {"response": extract_json(response.message.content)}
+    generated_prompt = generate_prompt(job_content, cv_content)
+
+    llm_response: ChatResponse = chat(
+        model='deepseek-r1',
+        messages=[{"role": "user","content": generated_prompt}])
+
+    extracted_data = extract_json(llm_response.message.content)
+    return {"response": extracted_data}
 #endregion
 
 #region: utils
 def generate_prompt(job_text: str, cv_text: str) -> str:
-    prompt = f"""
-    ### ROL
-    Je bent een feitelijke AI-assistent voor recruiters. Je taak is het vergelijken van een CV met een vacature.
-    Je mag NOOIT vaardigheden verzinnen die niet in de brontekst staan.
+    return f"""
+    STRENG GEHEIM: Vergelijk onderstaand CV met de Vacature.
 
-    ### BRONGEGEVENS
-    [START CV]
+    CV DATA:
     {cv_text}
-    [EIND CV]
 
-    [START VACATURE]
+    VACATURE DATA:
     {job_text}
-    [EIND VACATURE]
 
-    ### OPDRACHT
-    1. Identificeer de naam van de kandidaat uit het CV.
-    2. Lijst alle tech-skills uit de vacature op die NIET letterlijk in het CV staan[cite: 17, 19].
-    3. Bereken een match_percentage (0-100).
-    4. Schrijf een motivatiebrief vanuit de 'ik-persoon' (de kandidaat).
+    STAPPENPLAN VOOR AI:
+    1. Scan het CV op programmeertalen en frameworks.
+    2. Scan de vacature op vereiste technologieën.
+    3. Match deze (bijv. 'React.js' op CV = 'React' in vacature).
+    4. Bereken de match: Hoeveel van de vereiste tech-skills heeft de kandidaat?
+    5. Schrijf de brief.
 
-    ### STRIKTE INSTRUCTIES VOOR DE BRIEF
-    - Gebruik ALLEEN programmeertalen en frameworks die in het CV staan vermeld (bijv. Java, Kotlin, Python, React).
-    - Als de vacature vraagt om iets dat de kandidaat NIET heeft (bijv. Angular of Azure), schrijf dan: "Ik ben zeer gemotiveerd om mijn huidige kennis van [Skill van CV] uit te breiden naar [Gevraagde skill]".
-    - NOOIT liegen: Zeg niet "Ik heb ervaring met X" als X niet in het CV staat.
+    BELANGRIJK:
+    - [KANDIDAAT] HEEFT ervaring met React, Node.js, SQL, NoSQL en Docker. Als de vacature hierom vraagt, is de match NIET 0%.
+    - Noem in de brief de sterke punten van [KANDIDAAT] (bijv. zijn Microdegree in AI en zijn projecten met Kotlin/React Native).
 
-    ### OUTPUT FORMAAT (JSON)
-    Antwoord uitsluitend met JSON:
+    OUTPUT (ALLEEN JSON):
     {{
       "match_percentage": <int>,
-      "missing_skills": ["<skill>", "<skill>"],
-      "motivation_letter": "<tekst_in_het_nederlands>"
+      "missing_skills": ["alleen skills die ECHT niet op het CV staan"],
+      "motivation_letter": "<brief namens [KANDIDAAT] die de match verklaart en enthousiasme toont>"
     }}
     """
-    return prompt
 
 def extract_json(json_text: str):
     match = re.search(r'```json\s+(.*?)\s+```', json_text, re.DOTALL)
