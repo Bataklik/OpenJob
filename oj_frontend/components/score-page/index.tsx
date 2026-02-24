@@ -10,20 +10,27 @@ interface ScorePageProps {
 
 export default function ScorePage({ score, matchText }: ScorePageProps) {
     return (
-        <PageCard>
-            <CardHeader className="flex items-center justify-center">
-                <CardTitle className="text-xl">Match score</CardTitle>
+        <PageCard className="w-full">
+            <CardHeader className="text-center">
+                <CardTitle className="text-xl font-semibold">
+                    Match Score
+                </CardTitle>
             </CardHeader>
 
-            <CardContent className="flex flex-col justify-center items-center">
+            <CardContent className="flex flex-col items-center gap-6 pb-8">
                 {score !== null ? (
                     <ScoreChart score={score} />
                 ) : (
-                    <div className="flex items-center justify-center h-40 text-gray-400 text-lg">
-                        No score available.
+                    <div className="flex h-40 items-center justify-center text-muted-foreground">
+                        No score available
                     </div>
                 )}
-                <p className="text-gray-500">{matchText}</p>
+
+                {matchText && (
+                    <p className="text-center text-sm text-muted-foreground max-w-xs">
+                        {matchText}
+                    </p>
+                )}
             </CardContent>
         </PageCard>
     );

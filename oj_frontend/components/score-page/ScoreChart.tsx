@@ -35,15 +35,22 @@ export default function ScoreChart({ score }: ScoreChartProps) {
                     tick={false}
                 />
 
-                <RadialBar background dataKey="value" cornerRadius={20} />
+                <RadialBar
+                    dataKey="value"
+                    cornerRadius={20}
+                    fill="var(--primary)"
+                    background={{ fill: "var(--muted)" }}
+                />
 
                 {/* Score text in center */}
                 <text
                     x="50%"
-                    y="50%"
+                    y="47%"
                     textAnchor="middle"
                     dominantBaseline="middle"
-                    className="text-2xl font-semibold"
+                    fill="var(--foreground)"
+                    fontSize="22"
+                    fontWeight="600"
                 >
                     {score}%
                 </text>
@@ -53,7 +60,8 @@ export default function ScoreChart({ score }: ScoreChartProps) {
                     y="60%"
                     textAnchor="middle"
                     dominantBaseline="middle"
-                    className="text-sm text-muted-foreground"
+                    fill="var(--muted-foreground)"
+                    fontSize="12"
                 >
                     {label}
                 </text>
