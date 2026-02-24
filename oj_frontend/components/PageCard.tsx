@@ -2,12 +2,15 @@ import React from "react";
 import { Card } from "./ui/card";
 
 interface PageCardProps {
+    className?: string;
     children: React.ReactNode;
 }
 
-export default function PageCard({ children }: PageCardProps) {
+export default function PageCard({ children, className }: PageCardProps) {
     return (
-        <Card className="w-full max-w-lg border-none bg-zinc-50">
+        <Card
+            className={`flex flex-col w-full max-w-lg border-none bg-zinc-50 ${className ?? ""}`}
+        >
             {children}
         </Card>
     );
