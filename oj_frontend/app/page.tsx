@@ -13,7 +13,7 @@ export default function Home() {
     const fileInputRef = useRef<HTMLInputElement | null>(null);
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
     const [jobText, setJobText] = useState("");
-    const [score, setScore] = useState(null);
+    const [score, setScore] = useState(40);
     const missing = ["Scala", "C++", "Go"];
     const matched = ["C#", "Java", ".Net", "Python"];
     const handleClick = () => {
@@ -50,7 +50,7 @@ export default function Home() {
                 />
 
                 <div className="flex w-full flex-col justify-center items-center">
-                    <div className="flex flex-col w-full justify-evenly mt-10 gap-4 text-base font-medium sm:flex-row">
+                    <div className="flex flex-col w-full justify-evenly md:gap-6 mt-10 text-base font-medium sm:flex-row">
                         <ScorePage
                             score={score}
                             matchText={
