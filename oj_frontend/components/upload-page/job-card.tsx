@@ -1,7 +1,8 @@
 "use client";
 
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import PageCard from "../PageCard";
 
 interface JobCardProps {
     text: string;
@@ -15,9 +16,9 @@ export default function JobCard({ text, setText }: JobCardProps) {
     };
 
     return (
-        <Card className="w-full max-w-lg">
+        <PageCard>
             <CardHeader className="flex items-center justify-between">
-                <CardTitle className="text-base">Job Description</CardTitle>
+                <CardTitle className="text-xl">Job Description</CardTitle>
 
                 <Button size="sm" onClick={handlePaste}>
                     Paste Text
@@ -32,6 +33,6 @@ export default function JobCard({ text, setText }: JobCardProps) {
                     placeholder="Paste or type the job description here..."
                 />
             </CardContent>
-        </Card>
+        </PageCard>
     );
 }

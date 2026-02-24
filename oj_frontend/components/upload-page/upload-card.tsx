@@ -1,7 +1,8 @@
 import React, { RefObject } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { FileIcon, Upload } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { CardContent, CardHeader, CardTitle } from "../ui/card";
+import PageCard from "../PageCard";
 
 interface UploadCardProps {
     fileInputRef: RefObject<HTMLInputElement | null>;
@@ -17,9 +18,9 @@ export default function UploadCard({
     handleFileChange,
 }: UploadCardProps) {
     return (
-        <Card className="w-full max-w-md">
+        <PageCard>
             <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-base">
+                <CardTitle className="flex items-center gap-2 text-xl">
                     <Upload className="w-4 h-4" />
                     Upload CV
                 </CardTitle>
@@ -56,6 +57,6 @@ export default function UploadCard({
                     )}
                 </div>
             </CardContent>
-        </Card>
+        </PageCard>
     );
 }
