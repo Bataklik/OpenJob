@@ -12,7 +12,7 @@ import { Button } from "../../ui/button";
 import NavItem from "./nav-item";
 
 const navLinks = [
-    { href: "/", label: "Home" },
+    { href: "/", label: "Dashboard" },
     { href: "/how-to-use", label: "How to use" },
 ];
 
