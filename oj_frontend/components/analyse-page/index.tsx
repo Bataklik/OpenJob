@@ -9,11 +9,10 @@ interface AnalysePageProps {
 
 export default function AnalysePage({ matched, missing }: AnalysePageProps) {
     return (
-        <PageCard>
+        <PageCard className="flex-4 max-w-2xl">
             <CardHeader>
                 <CardTitle>Skills Analysis</CardTitle>
             </CardHeader>
-
             <CardContent className="space-y-6">
                 {/* Matched */}
                 <div>
