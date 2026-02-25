@@ -1,9 +1,10 @@
 "use client";
-import AnalysePage from "@/components/analyse-page";
+import AnalysePage from "@/components/analyse-card";
+import CoverLetterCard from "@/components/cover-card";
 import HeaderPage from "@/components/header-page";
 import PageCard from "@/components/PageCard";
-import ScorePage from "@/components/score-page";
-import ScoreChart from "@/components/score-page/ScoreChart";
+import ScorePage from "@/components/score-card";
+import ScoreChart from "@/components/score-card/ScoreChart";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import UploadPage from "@/components/upload-page";
@@ -31,33 +32,38 @@ export default function Home() {
         setSelectedFile(file);
     };
     return (
-        <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-            <main className="flex min-h-screen w-full flex-col items-center justify-between pb-32 px-16 bg-white dark:bg-black sm:items-start">
-                <HeaderPage
-                    title={"Find your perfect job match in seconds"}
-                    description={
-                        "Upload your resume and the target job description to get instant AI-powered analysis, skill gap detection and a cover letter."
-                    }
-                />
+        <div className="min-h-screen bg-zinc-50 font-sans dark:bg-black">
+            <main className="w-full bg-white px-4 pb-32 pt-8 dark:bg-black">
+                <div className="mx-auto flex w-full max-w-5xl flex-col gap-16">
+                    <HeaderPage
+                        title={"Find your perfect job match\nin seconds"}
+                        description={
+                            "Upload your resume and the target job description to get instant AI-powered analysis, skill gap detection and a cover letter."
+                        }
+                    />
 
-                <UploadPage
-                    jobText={jobText}
-                    setJobText={setJobText}
-                    fileInputRef={fileInputRef}
-                    selectedFile={selectedFile}
-                    handleClick={handleClick}
-                    handleFileChange={handleFileChange}
-                />
+                    <UploadPage
+                        jobText={jobText}
+                        setJobText={setJobText}
+                        fileInputRef={fileInputRef}
+                        selectedFile={selectedFile}
+                        handleClick={handleClick}
+                        handleFileChange={handleFileChange}
+                    />
 
-                <div className="flex w-full flex-col justify-center items-center">
-                    <div className="flex flex-col w-full justify-evenly md:gap-6 mt-10 text-base font-medium sm:flex-row">
-                        <ScorePage
-                            score={score}
-                            matchText={
-                                "Strong match for Bobba Bobba Developer."
-                            }
-                        />
-                        <AnalysePage matched={matched} missing={missing} />
+                    <div className="flex w-full flex-col gap-4">
+                        <div className="mt-10 flex w-full flex-col gap-6 text-base font-medium sm:flex-row">
+                            <ScorePage
+                                score={score}
+                                matchText={
+                                    "Strong match for Bobba Bobba Developer."
+                                }
+                            />
+                            <AnalysePage matched={matched} missing={missing} />
+                        </div>
+                        <div className="">
+                            <CoverLetterCard letter={null} />
+                        </div>
                     </div>
                 </div>
             </main>
