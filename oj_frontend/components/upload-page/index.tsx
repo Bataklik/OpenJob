@@ -21,8 +21,8 @@ export default function UploadPage({
     setJobText,
 }: UploadPageProps) {
     return (
-        <div className="flex w-full flex-col justify-center items-center">
-            <div className="flex flex-col w-full justify-evenly md:gap-6 mt-10 text-base font-medium sm:flex-row">
+        <div className="flex w-full flex-col">
+            <div className="mt-10 flex w-full flex-col gap-6 text-base font-medium sm:flex-row">
                 <UploadCard
                     fileInputRef={fileInputRef}
                     selectedFile={selectedFile}

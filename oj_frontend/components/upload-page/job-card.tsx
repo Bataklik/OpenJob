@@ -16,7 +16,7 @@ export default function JobCard({ text, setText }: JobCardProps) {
     };
 
     return (
-        <PageCard>
+        <PageCard className="flex-3">
             <CardHeader className="flex items-center justify-between">
                 <CardTitle className="text-xl">Job Description</CardTitle>
 

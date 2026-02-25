@@ -18,7 +18,7 @@ export default function UploadCard({
     handleFileChange,
 }: UploadCardProps) {
     return (
-        <PageCard>
+        <PageCard className="flex-3 max-w-full sm:max-w-2xl">
             <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-xl">
                     <Upload className="w-4 h-4" />
