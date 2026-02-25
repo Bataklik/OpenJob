@@ -12,15 +12,15 @@ interface HeaderPageProps {
 
 export default function HeaderPage({ title, description }: HeaderPageProps) {
     return (
-        <div className="w-full py-16 rounded-2xl">
-            <PageHeader className="text-center space-y-4">
-                <PageHeaderHeading className="mx-auto max-w-2xl text-4xl font-semibold tracking-tight">
+        <div className="w-full py-10">
+            <PageHeader className="space-y-4">
+                <PageHeaderHeading className="max-w-3xl text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight whitespace-pre-line">
                     {title}
                 </PageHeaderHeading>
 
-                <div className="mx-auto h-2 w-18 rounded-full bg-primary" />
+                <div className="mt-3 h-1 w-16 rounded-full bg-primary" />
 
-                <PageHeaderDescription className="mx-auto max-w-2xl text-base text-muted-foreground">
+                <PageHeaderDescription className="max-w-2xl text-base text-muted-foreground">
                     {description}
                 </PageHeaderDescription>
             </PageHeader>
