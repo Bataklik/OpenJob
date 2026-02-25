@@ -9,7 +9,7 @@ interface PageCardProps {
 export default function PageCard({ children, className }: PageCardProps) {
     return (
         <Card
-            className={`flex flex-col w-full max-w-lg border-none bg-zinc-50 ${className ?? ""}`}
+            className={`flex flex-col w-full border-none bg-zinc-50 ${className ?? ""}`}
         >
             {children}
         </Card>
