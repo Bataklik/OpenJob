@@ -33,3 +33,21 @@ Tijdens de ontwikkeling van OpenJob heb ik verschillende uitdagingen aangepakt d
    pip install -r requirements.txt
    uvicorn main:app --reload
     ```
+
+2. **Local AI:**
+
+    ```bash
+    ollama pull deepseek-r1
+    ```
+
+3. **Frontend**
+
+    ```bash
+    cd oj_frontend
+    npm install
+    npm run dev
+    ```
+
+## 📝 Zelfreflectie
+
+...
