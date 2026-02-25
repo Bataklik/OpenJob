@@ -9,7 +9,7 @@ import {
     navigationMenuTriggerStyle,
 } from "../../ui/navigation-menu";
 import { Button } from "../../ui/button";
-import NavItem from "./nav-item";
+import NavItem from "./NavItem";
 
 const navLinks = [
     { href: "/", label: "Dashboard" },

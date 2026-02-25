@@ -3,7 +3,7 @@ import {
     PageHeader,
     PageHeaderDescription,
     PageHeaderHeading,
-} from "./page-header";
+} from "./HeaderPrimitive";
 
 interface HeaderPageProps {
     title: string;

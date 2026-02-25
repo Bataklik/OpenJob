@@ -2,7 +2,7 @@
 
 import { CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import PageCard from "../PageCard";
+import PageCard from "../layout/PageCard";
 
 interface JobCardProps {
     text: string;

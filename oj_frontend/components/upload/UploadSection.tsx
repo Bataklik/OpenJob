@@ -1,6 +1,6 @@
 import React, { RefObject } from "react";
-import UploadCard from "./upload-card";
-import JobCard from "./job-card";
+import UploadCard from "./UploadCvCard";
+import JobCard from "./JobDescriptionCard";
 import { Button } from "../ui/button";
 
 interface UploadPageProps {

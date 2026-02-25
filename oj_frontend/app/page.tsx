@@ -1,13 +1,13 @@
 "use client";
-import AnalysePage from "@/components/analyse-card";
-import CoverLetterCard from "@/components/cover-card";
-import HeaderPage from "@/components/header-page";
-import PageCard from "@/components/PageCard";
-import ScorePage from "@/components/score-card";
-import ScoreChart from "@/components/score-card/ScoreChart";
+import AnalysePage from "@/components/results/SkillsAnalysisCard";
+import CoverLetterCard from "@/components/results/CoverLetterCard";
+import HeaderPage from "@/components/header/HeaderSection";
+import PageCard from "@/components/layout/PageCard";
+import ScoreCard from "@/components/results/ScoreCard";
+import ScoreChart from "@/components/results/ScoreChart";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import UploadPage from "@/components/upload-page";
+import UploadPage from "@/components/upload/UploadSection";
 import { useRef, useState } from "react";
 
 export default function Home() {
@@ -53,7 +53,7 @@ export default function Home() {
 
                     <div className="flex w-full flex-col gap-4">
                         <div className="mt-10 flex w-full flex-col gap-6 text-base font-medium sm:flex-row">
-                            <ScorePage
+                            <ScoreCard
                                 score={score}
                                 matchText={
                                     "Strong match for Bobba Bobba Developer."

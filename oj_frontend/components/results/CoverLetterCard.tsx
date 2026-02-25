@@ -1,7 +1,7 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Copy } from "lucide-react";
-import PageCard from "./PageCard";
+import PageCard from "../layout/PageCard";
 
 interface CoverLetterCardProps {
     letter: string | null;

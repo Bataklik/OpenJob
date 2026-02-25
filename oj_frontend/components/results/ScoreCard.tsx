@@ -1,5 +1,5 @@
 import React from "react";
-import PageCard from "../PageCard";
+import PageCard from "../layout/PageCard";
 import { CardContent, CardHeader, CardTitle } from "../ui/card";
 import ScoreChart from "./ScoreChart";
 
@@ -8,7 +8,7 @@ interface ScorePageProps {
     matchText: string | null;
 }
 
-export default function ScorePage({ score, matchText }: ScorePageProps) {
+export default function ScoreCard({ score, matchText }: ScorePageProps) {
     return (
         <PageCard className="flex-1 w-full">
             <CardHeader className="text-center">

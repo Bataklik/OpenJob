@@ -1,5 +1,5 @@
 import React from "react";
-import PageCard from "../PageCard";
+import PageCard from "../layout/PageCard";
 import { CardContent, CardHeader, CardTitle } from "../ui/card";
 
 interface AnalysePageProps {

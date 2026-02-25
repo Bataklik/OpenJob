@@ -2,7 +2,7 @@ import React, { RefObject } from "react";
 import { FileIcon, Upload } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CardContent, CardHeader, CardTitle } from "../ui/card";
-import PageCard from "../PageCard";
+import PageCard from "../layout/PageCard";
 
 interface UploadCardProps {
     fileInputRef: RefObject<HTMLInputElement | null>;
