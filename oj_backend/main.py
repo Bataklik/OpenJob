@@ -3,7 +3,6 @@ import re
 from fastapi import FastAPI, UploadFile, File, Form
 from pathlib import Path
 from typing import Annotated
-from schemas import MatchRequest
 from services.pdf_plumber import plumb_text_from_pdf
 from ollama import chat, ChatResponse
 from fastapi.middleware.cors import CORSMiddleware
