@@ -4,7 +4,7 @@ import { Copy } from "lucide-react";
 import PageCard from "../layout/PageCard";
 
 interface CoverLetterCardProps {
-    letter: string | null;
+    letter?: string;
 }
 
 export default function CoverLetterCard({ letter }: CoverLetterCardProps) {
