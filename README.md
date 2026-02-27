@@ -50,39 +50,51 @@ Tijdens de ontwikkeling van OpenJob heb ik verschillende uitdagingen aangepakt d
 
 ## 🛠 Project Evolution
 
-Tijdens de ontwikkeling heb ik het project iteratief verbeterd. Hieronder zie je de belangrijkste stappen in de transformatie van een technisch prototype naar een gepolijste SaaS-oplossing.
+Hieronder volgt een overzicht van de evolutie van **OpenJob**, van de eerste functionele bouwstenen tot de gepolijste AI-gedreven interface.
 
-### 1️⃣ De Functionele Fundering
+### 1. Core Layout & Input Architectuur
 
-![Initial Upload Interface](./screenshots/screen_1.png)
-In de beginfase lag de focus op de technische 'proof of concept'. Ik implementeerde de eerste integratie tussen de **FastAPI-backend** en de **Next.js-frontend**. De nadruk lag hier op het bouwen van een robuuste parser die ruwe PDF-data via `pdfplumber` accuraat kon omzetten in tekst, klaar voor verwerking door de AI.
+![Core Layout](screenshots/screen_1.png)
 
-### 2️⃣ AI-Integratie & Score-Berekening
+- **Beschrijving:** De basis van de applicatie met een focus op gestructureerde data-entry. Implementatie van een **PDF-Uploader** met bestandstype-validatie en een **Job Description Input** voorzien van een 'Paste Text' functionaliteit.
+- **Focus:** UI-structuur en initiële component-architectuur.
 
-![Job Description Input](./screenshots/screen_2.png)
-De eerste stap naar een intelligent systeem. Hier introduceerde ik de 'Analyze' functionaliteit. De backend stuurt de geparste data naar **DeepSeek-R1**, die op basis van een custom prompt een match-score berekent. De UI werd uitgebreid met de eerste 'Skills Analysis' sectie om de gebruiker direct feedback te geven.
+### 2. Brand Identity & Navigatie
 
-### 3️⃣ Visuele Gap Analysis
+![Navbar & Logo](screenshots/screen_2.png)
 
-![Skill Gap Analysis_1](./screenshots/screen_3a.png)
-![Skill Gap Analysis_2](./screenshots/screen_3b.png)
-UX-verbetering door middel van visualisatie. In plaats van simpele tekst, gebruik ik nu voortgangscirkels en kleurgecodeerde badges (matched vs. missing keywords). Dit maakt het voor de gebruiker in één oogopslag duidelijk waar de sterke punten liggen en waar de 'skill gaps' zich bevinden.
+- **Beschrijving:** Introductie van een gestroomlijnde navigatiebalk met 'Home' en 'How To Use' secties. De visuele identiteit is versterkt met een modern logo, wat bijdraagt aan de professionele uitstraling van de tool.
+- **Focus:** Branding en Informatie-architectuur.
 
-### 4️⃣ Content Generatie & Copy-Flow
+### 3. Analytics Dashboard & AI Logica
 
-![Motivation Letter Generation](./screenshots/screen_4.png)
-Toevoeging van de generatieve laag. Naast analyse kan OpenJob nu ook een gepersonaliseerde motivatiebrief opstellen die de matched skills benadrukt. Ik heb een 'Copy-to-Clipboard' feature toegevoegd om de workflow van de gebruiker te versnellen.
+![Analytics Cards](screenshots/screen_3a.png)
+![Skills Analysis](screenshots/screen_3b.png)
 
-### 5️⃣ UI/UX Polishing & Branding
+- **Beschrijving:** De overgang van een statische naar een functionele pagina. Introductie van dynamische kaarten voor de **Match Score** en een gedetailleerde **Skill Analysis**. Het systeem maakt nu onderscheid tussen 'Matched Skills' en 'Missing Skills' op basis van AI-extractie.
+- **Focus:** Data-visualisatie en integratie van LLM-feedback.
 
-![UI/UX Improvements](./screenshots/screen_5.png)
-De transitie naar een volwaardige SaaS-ervaring. Door gebruik te maken van **shadcn/ui** componenten en een verfijnd kleurenpalet (geïnspireerd op de Next.js esthetiek), kreeg het dashboard een professionele uitstraling. De informatie-architectuur werd geoptimaliseerd voor leesbaarheid en visuele rust.
+### 4. Visuele Consistentie & Kleurbeheer
 
-### 6️⃣ User Onboarding & Architectuur
+![Theming](screenshots/screen_4.png)
 
-![How It Works_1](./screenshots/screen_6a.png)
-![How It Works_2](./screenshots/screen_6b.png)
-De laatste hand aan de user experience: een interactieve 'How It Works' sectie. Hier leg ik de 'Behind the Scenes' logica uit — van **Natural Language Processing** tot **Gap Analysis**. Dit verhoogt het vertrouwen van de gebruiker door transparant te zijn over hoe AI-beslissingen tot stand komen.
+- **Beschrijving:** Verfijning van de UI door het doorvoeren van een consistent kleurenschema. De accentkleuren uit het logo zijn gebruikt om de visuele hiërarchie te versterken, waardoor de actieknop 'Analyze' en de status-badges beter opvallen.
+- **Focus:** UX-design en kleurentheorie.
+
+### 5. Generative Career Assets (Cover Letter)
+
+![Cover Letter Generation](screenshots/screen_5.png)
+
+- **Beschrijving:** Implementatie van de generatieve laag. Onder de analyse-sectie is een 'full-width' kaart toegevoegd waar de AI automatisch een op maat gemaakte motivatiebrief opstelt, direct gebaseerd op de matches in het CV.
+- **Focus:** Generative AI (GenAI) en workflow-automatisering.
+
+### 6. User Onboarding & Documentatie
+
+![How To Use Page](screenshots/screen_6a.png)
+![Detailed Guide](screenshots/screen_6b.png)
+
+- **Beschrijving:** Voltooiing van de applicatie met een interactieve **How To Use** pagina. Deze sectie legt stap-voor-stap de technische werking uit, van de PDF-parsing tot de AI-interpretatie, om de gebruiker volledig te onboarden.
+- **Focus:** User Enablement en technische transparantie.
 
 ## 📝 Zelfreflectie
 
