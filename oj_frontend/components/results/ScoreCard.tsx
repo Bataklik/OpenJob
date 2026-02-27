@@ -4,8 +4,8 @@ import { CardContent, CardHeader, CardTitle } from "../ui/card";
 import ScoreChart from "./ScoreChart";
 
 interface ScorePageProps {
-    score: number | null;
-    matchText: string | null;
+    score?: number;
+    matchText?: string;
 }
 
 export default function ScoreCard({ score, matchText }: ScorePageProps) {
@@ -18,7 +18,7 @@ export default function ScoreCard({ score, matchText }: ScorePageProps) {
             </CardHeader>
 
             <CardContent className="flex flex-col items-center gap-6 pb-8">
-                {score !== null ? (
+                {score !== undefined ? (
                     <ScoreChart score={score} />
                 ) : (
                     <div className="flex h-40 items-center justify-center text-muted-foreground">
