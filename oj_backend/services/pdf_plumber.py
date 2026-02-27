@@ -1,5 +1,5 @@
-import pdfplumber
 from pathlib import Path
+import pdfplumber
 
 def plumb_text_from_pdf(pdf_path: Path) -> str:
     path = Path(pdf_path)
@@ -8,8 +8,7 @@ def plumb_text_from_pdf(pdf_path: Path) -> str:
         raise FileNotFoundError(f"File not found: {pdf_path}")
 
     pdf_text = ""
-
-    with pdfplumber.open(pdf_path) as pdf:
+    with pdfplumber.open(path) as pdf:
         for page in pdf.pages:
             text = page.extract_text()
             if text:
