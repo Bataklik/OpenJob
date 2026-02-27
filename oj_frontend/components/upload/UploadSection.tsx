@@ -2,9 +2,8 @@ import React, { RefObject } from "react";
 import UploadCard from "./UploadCvCard";
 import JobCard from "./JobDescriptionCard";
 import { Button } from "../ui/button";
-import { Progress } from "../ui/progress";
 
-interface UploadPageProps {
+interface UploadSectionProps {
     fileInputRef: RefObject<HTMLInputElement | null>;
     selectedFile: File | null;
     handleClick: () => void;
@@ -16,7 +15,7 @@ interface UploadPageProps {
     isAnalyzing: boolean;
 }
 
-export default function UploadPage({
+export default function UploadSection({
     fileInputRef,
     selectedFile,
     handleClick,
@@ -26,9 +25,9 @@ export default function UploadPage({
     handleAnalyse,
     handleClear,
     isAnalyzing,
-}: UploadPageProps) {
+}: UploadSectionProps) {
     return (
-        <div className="flex w-full flex-col">
+        <div className="flex w-full flex-col flex-2">
             <div className="mt-10 flex w-full flex-col gap-6 text-base font-medium sm:flex-row">
                 <UploadCard
                     fileInputRef={fileInputRef}
