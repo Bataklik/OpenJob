@@ -48,6 +48,59 @@ Tijdens de ontwikkeling van OpenJob heb ik verschillende uitdagingen aangepakt d
     npm run dev
     ```
 
+## 📸 Project Evolution
+
+Tijdens de ontwikkeling heb ik het project iteratief verbeterd.
+Hieronder zie je de belangrijkste stappen.
+
+### 1️⃣ Initial Upload Interface
+
+![Screen 1](./screenshots/screen_1.png)
+
+Eerste versie met basis PDF upload functionaliteit.
+
+---
+
+### 2️⃣ Job Description Input
+
+![Screen 2](./screenshots/screen_2.png)
+
+Toevoeging van vacature parsing.
+
+---
+
+### 3️⃣ AI Score Integration
+
+![Screen 3A](./screenshots/screen_3a.png)
+![Screen 3B](./screenshots/screen_3b.png)
+
+Implementatie van match-percentage en JSON parsing.
+
+---
+
+### 4️⃣ Skill Gap Analysis
+
+![Screen 4](./screenshots/screen_4.png)
+
+Weergave van matched en missing skills.
+
+---
+
+### 5️⃣ Motivation Letter Generation
+
+![Screen 5](./screenshots/screen_5.png)
+
+Automatische motivatiebrief via LLM.
+
+---
+
+### 6️⃣ UI/UX Improvements & Theming
+
+![Screen 6A](./screenshots/screen_6a.png)
+![Screen 6B](./screenshots/screen_6b.png)
+
+Responsive layout, theming en dashboard-structuur.
+
 ## 📝 Zelfreflectie
 
 ...
