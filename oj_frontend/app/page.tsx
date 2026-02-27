@@ -1,10 +1,8 @@
 "use client";
-import AnalysePage from "@/components/results/SkillsAnalysisCard";
-import CoverLetterCard from "@/components/results/CoverLetterCard";
 import HeaderPage from "@/components/header/HeaderSection";
-import ScoreCard from "@/components/results/ScoreCard";
-import UploadPage from "@/components/upload/UploadSection";
 import { useRef, useState } from "react";
+import UploadSection from "@/components/upload/UploadSection";
+import ResultsSection from "@/components/results/ResultsSection";
 
 export default function Home() {
     const fileInputRef = useRef<HTMLInputElement | null>(null);
@@ -12,10 +10,10 @@ export default function Home() {
     const [jobText, setJobText] = useState("");
     const [isAnalyzing, setIsAnalyzing] = useState(false);
 
-    const [score, setScore] = useState(null);
+    const [score, setScore] = useState(undefined);
     const [matched, setMatched] = useState<string[]>([]);
     const [missing, setMissing] = useState<string[]>([]);
-    const [letter, setLetter] = useState(null);
+    const [letter, setLetter] = useState(undefined);
     const [matchText, setMatchText] = useState("None");
     const handleAnalyse = () => {
         if (!selectedFile) {
@@ -51,10 +49,10 @@ export default function Home() {
     const handleClear = () => {
         setSelectedFile(null);
         setJobText("");
-        setScore(null);
+        setScore(undefined);
         setMatched([]);
         setMissing([]);
-        setLetter(null);
+        setLetter(undefined);
         setMatchText("None");
     };
     const handleClick = () => {
@@ -72,9 +70,9 @@ export default function Home() {
         setSelectedFile(file);
     };
     return (
-        <div className="min-h-screen bg-zinc-50 font-sans dark:bg-black">
-            <main className="w-full bg-white px-4 pb-32 pt-8 dark:bg-black">
-                <div className="mx-auto flex w-full max-w-5xl flex-col gap-16">
+        <div className="flex flex-col min-h-screen bg-zinc-50 font-sans dark:bg-black">
+            <main className="w-full flex-1 bg-white px-4 pb-32 pt-8 dark:bg-black">
+                <div className="mx-auto flex w-full h-full max-w-5xl flex-col gap-14">
                     <HeaderPage
                         title={"Find your perfect job match\nin seconds"}
                         description={
@@ -82,7 +80,7 @@ export default function Home() {
                         }
                     />
 
-                    <UploadPage
+                    <UploadSection
                         jobText={jobText}
                         setJobText={setJobText}
                         fileInputRef={fileInputRef}
@@ -94,15 +92,13 @@ export default function Home() {
                         isAnalyzing={isAnalyzing}
                     />
 
-                    <div className="flex w-full flex-col gap-4">
-                        <div className="mt-10 flex w-full flex-col gap-6 text-base font-medium sm:flex-row">
-                            <ScoreCard score={score} matchText={matchText} />
-                            <AnalysePage matched={matched} missing={missing} />
-                        </div>
-                        <div>
-                            <CoverLetterCard letter={letter} />
-                        </div>
-                    </div>
+                    <ResultsSection
+                        score={score}
+                        matchText={matchText}
+                        matched={matched}
+                        missing={missing}
+                        letter={letter}
+                    />
                 </div>
             </main>
         </div>
