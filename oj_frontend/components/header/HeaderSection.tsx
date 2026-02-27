@@ -12,7 +12,7 @@ interface HeaderPageProps {
 
 export default function HeaderPage({ title, description }: HeaderPageProps) {
     return (
-        <div className="w-full py-10">
+        <div className="w-full py-10 flex-1">
             <PageHeader className="space-y-4">
                 <PageHeaderHeading className="max-w-3xl text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight whitespace-pre-line">
                     {title}
