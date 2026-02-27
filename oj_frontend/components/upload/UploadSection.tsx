@@ -2,6 +2,7 @@ import React, { RefObject } from "react";
 import UploadCard from "./UploadCvCard";
 import JobCard from "./JobDescriptionCard";
 import { Button } from "../ui/button";
+import { Progress } from "../ui/progress";
 
 interface UploadPageProps {
     fileInputRef: RefObject<HTMLInputElement | null>;
@@ -10,6 +11,9 @@ interface UploadPageProps {
     handleFileChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     jobText: string;
     setJobText: React.Dispatch<React.SetStateAction<string>>;
+    handleAnalyse: () => void;
+    handleClear: () => void;
+    isAnalyzing: boolean;
 }
 
 export default function UploadPage({
@@ -19,6 +23,9 @@ export default function UploadPage({
     handleFileChange,
     jobText,
     setJobText,
+    handleAnalyse,
+    handleClear,
+    isAnalyzing,
 }: UploadPageProps) {
     return (
         <div className="flex w-full flex-col">
@@ -31,7 +38,19 @@ export default function UploadPage({
                 />
                 <JobCard text={jobText} setText={setJobText} />
             </div>
-            <Button className="mt-6 px-12 py-6 w-1/4">Analyze</Button>
+
+            <div className="flex gap-4">
+                <Button
+                    onClick={handleAnalyse}
+                    disabled={isAnalyzing}
+                    className="mt-6 px-12 py-6 w-1/4"
+                >
+                    {isAnalyzing ? "Analyzing..." : "Analyze"}
+                </Button>
+                <Button onClick={handleClear} className="mt-6 px-12 py-6 w-1/4">
+                    Clear
+                </Button>
+            </div>
         </div>
     );
 }
