@@ -48,58 +48,41 @@ Tijdens de ontwikkeling van OpenJob heb ik verschillende uitdagingen aangepakt d
     npm run dev
     ```
 
-## 📸 Project Evolution
+## 🛠 Project Evolution
 
-Tijdens de ontwikkeling heb ik het project iteratief verbeterd.
-Hieronder zie je de belangrijkste stappen.
+Tijdens de ontwikkeling heb ik het project iteratief verbeterd. Hieronder zie je de belangrijkste stappen in de transformatie van een technisch prototype naar een gepolijste SaaS-oplossing.
 
-### 1️⃣ Initial Upload Interface
+### 1️⃣ De Functionele Fundering
 
-![Screen 1](./screenshots/screen_1.png)
+![Initial Upload Interface](./screenshots/screen_1.png)
+In de beginfase lag de focus op de technische 'proof of concept'. Ik implementeerde de eerste integratie tussen de **FastAPI-backend** en de **Next.js-frontend**. De nadruk lag hier op het bouwen van een robuuste parser die ruwe PDF-data via `pdfplumber` accuraat kon omzetten in tekst, klaar voor verwerking door de AI.
 
-Eerste versie met basis PDF upload functionaliteit.
+### 2️⃣ AI-Integratie & Score-Berekening
 
----
+![Job Description Input](./screenshots/screen_2.png)
+De eerste stap naar een intelligent systeem. Hier introduceerde ik de 'Analyze' functionaliteit. De backend stuurt de geparste data naar **DeepSeek-R1**, die op basis van een custom prompt een match-score berekent. De UI werd uitgebreid met de eerste 'Skills Analysis' sectie om de gebruiker direct feedback te geven.
 
-### 2️⃣ Job Description Input
+### 3️⃣ Visuele Gap Analysis
 
-![Screen 2](./screenshots/screen_2.png)
+![Skill Gap Analysis_1](./screenshots/screen_3a.png)
+![Skill Gap Analysis_2](./screenshots/screen_3b.png)
+UX-verbetering door middel van visualisatie. In plaats van simpele tekst, gebruik ik nu voortgangscirkels en kleurgecodeerde badges (matched vs. missing keywords). Dit maakt het voor de gebruiker in één oogopslag duidelijk waar de sterke punten liggen en waar de 'skill gaps' zich bevinden.
 
-Toevoeging van vacature parsing.
+### 4️⃣ Content Generatie & Copy-Flow
 
----
+![Motivation Letter Generation](./screenshots/screen_4.png)
+Toevoeging van de generatieve laag. Naast analyse kan OpenJob nu ook een gepersonaliseerde motivatiebrief opstellen die de matched skills benadrukt. Ik heb een 'Copy-to-Clipboard' feature toegevoegd om de workflow van de gebruiker te versnellen.
 
-### 3️⃣ AI Score Integration
+### 5️⃣ UI/UX Polishing & Branding
 
-![Screen 3A](./screenshots/screen_3a.png)
-![Screen 3B](./screenshots/screen_3b.png)
+![UI/UX Improvements](./screenshots/screen_5.png)
+De transitie naar een volwaardige SaaS-ervaring. Door gebruik te maken van **shadcn/ui** componenten en een verfijnd kleurenpalet (geïnspireerd op de Next.js esthetiek), kreeg het dashboard een professionele uitstraling. De informatie-architectuur werd geoptimaliseerd voor leesbaarheid en visuele rust.
 
-Implementatie van match-percentage en JSON parsing.
+### 6️⃣ User Onboarding & Architectuur
 
----
-
-### 4️⃣ Skill Gap Analysis
-
-![Screen 4](./screenshots/screen_4.png)
-
-Weergave van matched en missing skills.
-
----
-
-### 5️⃣ Motivation Letter Generation
-
-![Screen 5](./screenshots/screen_5.png)
-
-Automatische motivatiebrief via LLM.
-
----
-
-### 6️⃣ UI/UX Improvements & Theming
-
-![Screen 6A](./screenshots/screen_6a.png)
-![Screen 6B](./screenshots/screen_6b.png)
-
-Responsive layout, theming en dashboard-structuur.
+![How It Works_1](./screenshots/screen_6a.png)
+![How It Works_2](./screenshots/screen_6b.png)
+De laatste hand aan de user experience: een interactieve 'How It Works' sectie. Hier leg ik de 'Behind the Scenes' logica uit — van **Natural Language Processing** tot **Gap Analysis**. Dit verhoogt het vertrouwen van de gebruiker door transparant te zijn over hoe AI-beslissingen tot stand komen.
 
 ## 📝 Zelfreflectie
 
