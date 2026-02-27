@@ -18,7 +18,7 @@ export default function HeaderPage({ title, description }: HeaderPageProps) {
                     {title}
                 </PageHeaderHeading>
 
-                <div className="mt-3 h-1 w-16 rounded-full bg-primary" />
+                <div className="mt-3 h-1 w-5/9 rounded-full bg-primary" />
 
                 <PageHeaderDescription className="max-w-2xl text-base text-muted-foreground">
                     {description}
