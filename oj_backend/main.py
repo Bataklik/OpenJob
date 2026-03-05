@@ -1,13 +1,19 @@
 import json
 import re
-from fastapi import FastAPI, UploadFile, File, Form
+import tempfile
+import shutil
 from pathlib import Path
-from typing import Annotated
-from services.pdf_plumber import plumb_text_from_pdf
-from ollama import chat, ChatResponse
+from turtle import title
+from typing import Annotated, Dict, Any
+from schemas import MatchResponse
+from fastapi import FastAPI, UploadFile, File, Form, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
-app = FastAPI()
+# Services/Utils
+from services.pdf_plumber import plumb_text_from_pdf
+from ollama import chat, ChatResponse
+
+app = FastAPI(title="OpenJob", description="AI-Powered Job Matching Tool")
 
 app.add_middleware(
     CORSMiddleware,
@@ -17,50 +23,49 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-models = ["gemma3", "deepseek-r1"]
-# region: endpoints
+# * --- Endpoints ---
 
 
-@app.get("/plumb")
-def plumb_pdf():
-    """ Extracts text from a PDF file and returns it as a dictionary.
-    Returns:
-        dict: A dictionary containing the extracted text from the PDF.
-    """
-    text = plumb_text_from_pdf("CV-Burak-M-Balci-2025_NL.pdf")
-    return {"pdf_text": text}
-
-
-@app.post("/match")
+@app.post("/match", response_model=MatchResponse)
 async def match_job_to_cv(vacancy_text: Annotated[str, Form()],
                           cv_file: Annotated[UploadFile, File()]):
-    """_summary_
+    """Compare a CV with a job description and return a JSON response
+    with the match percentage, matched skills, missing skills, and motivation letter.
 
     Args:
-        vacancy_text (Annotated[str, Form): _description_
-        cv_file (Annotated[UploadFile, File): _description_
+        vacancy_text (Annotated[str, Form): The vacancy description text.
+        cv_file (Annotated[UploadFile, File): The CV file.
 
     Returns:
-        _type_: _description_
+        dict: A dictionary containing the match percentage,
+        matched skills, missing skills, and motivation letter.
     """
-    tmp_path = Path("/tmp") / cv_file.filename
-    with tmp_path.open("wb") as f:
-        f.write(await cv_file.read())
 
-    cv_content = plumb_text_from_pdf(tmp_path)
+    with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp:
+        shutil.copyfileobj(cv_file.file, tmp)
+        tmp_path = Path(tmp.name)
 
-    generated_prompt = generate_prompt(vacancy_text, cv_content)
+    try:
+        cv_content = plumb_text_from_pdf(tmp_path)
+        if not cv_content.strip():
+            raise HTTPException(status_code=400, detail="Invalid CV file")
 
-    llm_response: ChatResponse = chat(
-        model='deepseek-r1',
-        messages=[{"role": "user", "content": generated_prompt}])
+        generated_prompt = generate_prompt(vacancy_text, cv_content)
 
-    extracted_data = extract_json(llm_response.message.content)
-    return {"response": extracted_data}
-# endregion
+        response: ChatResponse = chat(
+            model='deepseek-r1',
+            messages=[{"role": "user", "content": generated_prompt}])
 
-# region: utils
+        extracted_data = extract_json(response.message.content)
+        return extracted_data
+    except Exception as e:
+        raise HTTPException(status_code=500,
+                            detail=f"Internal server error: {str(e)}") from e
+    finally:
+        if tmp_path.exists():
+            tmp_path.unlink()
 
+# * --- Utils ---
 
 def generate_prompt(job_text: str, cv_text: str) -> str:
     """Build the LLM prompt that compares a CV with a job description.
@@ -131,6 +136,7 @@ def generate_prompt(job_text: str, cv_text: str) -> str:
 
 
 def extract_json(json_text: str):
+    """Extracts JSON from a string."""
     match = re.search(r'```json\s+(.*?)\s+```', json_text, re.DOTALL)
     if match:
         return json.loads(match.group(1))
