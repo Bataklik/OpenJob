@@ -33,11 +33,11 @@ export default function Home() {
             .then((res) => res.json())
             .then((data) => {
                 console.log("Response van /match endpoint:", data);
-                setScore(data.response.match_percentage);
-                setMatched(data.response.matched_skills);
-                setMissing(data.response.missing_skills);
-                setLetter(data.response.motivation_letter);
-                setMatchText(data.response.match_text);
+                setScore(data.match_percentage);
+                setMatched(data.matched_skills);
+                setMissing(data.missing_skills);
+                setLetter(data.motivation_letter);
+                setMatchText(data.match_text);
             })
             .catch((err) => {
                 console.error("Fout bij /match:", err);
