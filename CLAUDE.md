@@ -19,7 +19,8 @@ pip install -r requirements.txt
 uvicorn main:app --reload
 
 # Pull the required LLM model (prerequisite: Ollama must be running)
-ollama pull deepseek-r1
+# Custom fine-tuned model: https://huggingface.co/Vibe-Bataklik/open_jobs
+ollama pull open-jobs
 ```
 
 ### Frontend (`oj_frontend/`)
@@ -40,8 +41,8 @@ npm run lint     # ESLint
 2. Sends `multipart/form-data` POST to `http://localhost:8000/match`
 3. Backend (`main.py` → `utils.process_match`) saves PDF to temp file, extracts text via `services/pdf_plumber.py`
 4. `utils.generate_prompt()` builds a Dutch-language system prompt with strict grounding rules
-5. Ollama `deepseek-r1` model called via `ollama.chat()` with `temperature=0.2`
-6. `utils.extract_json()` strips DeepSeek-R1's `<think>` blocks and parses JSON
+5. Ollama `open-jobs:latest` (custom fine-tuned model) called via `ollama.chat()` with `temperature=0.2`
+6. `utils.extract_json()` parses the JSON response
 7. Returns `MatchResponse` (Pydantic schema in `schemas.py`)
 8. Frontend renders results: `ScoreCard`, `SkillsAnalysisCard`, `CoverLetterCard`
 
@@ -61,7 +62,7 @@ npm run lint     # ESLint
 ### Backend Stack
 
 - Python 3.12, FastAPI, uv (package manager)
-- `ollama` client + `deepseek-r1` model (local inference)
+- `ollama` client + `open-jobs:latest` custom fine-tuned model (local inference, HuggingFace: Vibe-Bataklik/open_jobs)
 - `pdfplumber` for PDF text extraction
 - CORS restricted to `http://localhost:3000`
 
@@ -80,7 +81,7 @@ The prompt (`utils.generate_prompt`) is written entirely in Dutch and enforces:
 - **No placeholders**: if data is missing, rephrase naturally
 - **Structured JSON output** with 5 fields: `match_percentage`, `matched_skills`, `missing_skills`, `motivation_letter`, `match_text`
 
-`extract_json()` handles DeepSeek-R1's tendency to wrap output in `\`\`\`json` blocks or `<think>` sections.
+`extract_json()` handles responses wrapped in `\`\`\`json` blocks or similar formatting.
 
 ## Notes
 
