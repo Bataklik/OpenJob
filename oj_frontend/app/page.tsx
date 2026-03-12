@@ -34,8 +34,8 @@ export default function Home() {
             .then((data) => {
                 console.log("Response van /match endpoint:", data);
                 setScore(data.match_percentage);
-                setMatched(data.matched_skills);
-                setMissing(data.missing_skills);
+                setMatched(data.matched_skills ?? []);
+                setMissing(data.missing_skills ?? []);
                 setLetter(data.motivation_letter);
                 setMatchText(data.match_text);
             })
