@@ -38,6 +38,6 @@ async def match_job_to_cv(vacancy_text: Annotated[str, Form()],
             raise HTTPException(status_code=422, detail=result["error"])
         return result
     except ValueError as ve:
-        raise HTTPException(status_code=400, detail=str(ve))
+        raise HTTPException(status_code=400, detail=str(ve)) from ve
     except Exception as e:
         raise HTTPException(status_code=500, detail="Internal server error") from e
