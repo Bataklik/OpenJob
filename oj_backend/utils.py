@@ -5,7 +5,7 @@ import re
 import json
 from pathlib import Path
 from ollama import chat
-from fastapi import UploadFile
+from fastapi import UploadFile, HTTPException
 
 from services.pdf_plumber import plumb_text_from_pdf
 
@@ -90,12 +90,12 @@ async def process_match(vacancy_text: str, cv_file: UploadFile):
     try:
         cv_content = plumb_text_from_pdf(tmp_path)
         if not cv_content.strip():
-            raise ValueError(status_code=400, detail="Invalid CV file")
+            raise HTTPException(status_code=400, detail="Invalid CV file")
 
         generated_prompt = generate_prompt(vacancy_text, cv_content)
         print(generated_prompt)
         response = chat(
-            model='deepseek-r1',
+            model='open-jobs:latest',
             messages=[{"role": "user", "content": generated_prompt}],
             options={"temperature": 0.2}
         )
@@ -103,8 +103,8 @@ async def process_match(vacancy_text: str, cv_file: UploadFile):
         extracted_data = extract_json(response.message.content)
         return extracted_data
     except Exception as e:
-        raise ValueError(status_code=500,
-                         detail=f"Internal server error: {str(e)}") from e
+        raise HTTPException(status_code=500,
+                            detail=f"Internal server error: {str(e)}") from e
     finally:
         if tmp_path.exists():
             tmp_path.unlink()
