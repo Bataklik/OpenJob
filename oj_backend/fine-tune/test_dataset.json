@@ -3,9 +3,7 @@
         "input": "Je bent een uiterst kritische AI Recruiter. Je doel is een eerlijke vergelijking te maken tussen het CV en de Vacature en een motivatiebrief te schrijven volgens de VDAB-normen.\r\n---\r\nVACATURE:\r\nFunctietitel: Backend Developer (Java / Spring Boot)\nBedrijf: Cegeka, Hasselt\nContract: Voltijds, onbepaalde duur\n\nFunctiebeschrijving:\nWe zoeken een Backend Developer voor het bouwen van enterprise-applicaties.\n\nVereiste vaardigheden:\n- Bachelor of Master Informatica\n- Sterke kennis van Java en Spring Boot\n- REST API-ontwikkeling en microservices\n- PostgreSQL of MySQL\n- Git, Maven, CI/CD\n- Goede communicatie in het Nederlands\r\n---\r\nCV:\r\nDr. Wouter Claessens\nBrussel, België\nwouter.claessens@email.be | 0477 12 34 56\n\nWERKERVARING\nTandarts (zelfstandig)\nTandartspraktijk Claessens, Brussel | september 2016 – heden\n- Tandheelkundige behandelingen (vullingen, extracties, kronen)\n- Patiëntendossiers bijhouden via dentale software\n- Aansturen van tandartsassistente en onthaalmedewerker\n- Facturatie via derdebetalersregeling (Medibridge)\n\nOPLEIDING\nMaster Tandheelkunde\nKU Leuven | 2010 – 2016\n\nVAARDIGHEDEN\n- Dentale software (Medibridge)\n- Patiëntenzorg\n- Facturatie en dossiersbeheer\n- Nederlands: moedertaal | Frans: goed\r\n---\r\nSTRIKTE ANALYSE REGELS:\r\n1. MATCHED SKILLS: Alleen vaardigheden die LETTERLIJK of als DIRECT SYNONIEM in beide teksten voorkomen.\r\n2. MISSING SKILLS: Alleen concrete vereisten uit de vacature die ontbreken op het CV.\r\n3. MATCH PERCENTAGE:\r\n- 80-100%: Perfecte match.\r\n- 60-79%: Goede basis, mist details.\r\n- 40-59%: Verschillend vakgebied, maar overdraagbare technische skills.\r\n- <40%: Geen relevante match.\r\nRICHTLIJNEN VOOR DE VDAB-MOTIVATIEBRIEF:\r\nSchrijf een volledige brief in het veld 'motivation_letter' met deze opbouw:\r\n1. CONTACTGEGEVENS KANDIDAAT: Extraheer de volledige naam, adres, telefoonnummer en e-mail van de kandidaat uit het CV en zet deze bovenaan.\r\n2. CONTACTGEGEVENS BEDRIJF: Extraheer de bedrijfsnaam en locatie uit de vacature. Indien onbekend, gebruik \"De selectiecommissie\" of \"Uw organisatie\".\r\n3. ONDERWERP: Gebruik de exacte functietitel uit de vacature.\r\n4. AANSPREKING: Zoek naar een contactpersoon in de vacature. Indien gevonden: \"Geachte [Naam],\". Indien onbekend: \"Beste,\".\r\n5. INLEIDING: Schrijf een persoonlijke openingszin die direct de link legt tussen de kandidaat en de kernwaarde van de vacature.\r\n6. MOTIVATIE & TROEVEN:\r\n- Leg uit waarom de kandidaat specifiek voor dít bedrijf kiest op basis van de vacaturetekst.\r\n- Bewijs waarom de kandidaat geschikt is door specifieke projecten of prestaties van het CV te koppelen aan de eisen van de job.\r\n7. AFSLUITING: Gebruik een krachtige zin over de wens om de motivatie in een persoonlijk gesprek toe te lichten.\r\n8. GROET: Eindig met \"Met vriendelijke groet,\" gevolgd door de volledige naam van de kandidaat.\r\nSTRIKTE VOORWAARDEN:\r\n- Gebruik NOOIT placeholders (zoals [Naam]). Als informatie ontbreekt, formuleer de zin dan zodanig dat het wegvallen niet opvalt.\r\n- Gebruik \\\\n voor alle witregels en alinea-overgangen in de JSON string.\r\n- Schrijf in professioneel, foutloos Nederlands (u-vorm)\r\nGEEF UITSLUITEND JSON TERUG:\r\n{{\r\n\"match_percentage\": <int>,\r\n\"matched_skills\": [\"skill1\", \"skill2\"],\r\n\"missing_skills\": [\"skill1\", \"skill2\"],\r\n\"motivation_letter\": \"...\",\r\n\"match_text\": \"[VOLLEDIGE NAAM VAN CV] heeft een\r\n[PERFECTE | GOEDE | GEMIDDELDE | LAGE] match met de vacature.",
         "output": {
             "match_percentage": 16,
-            "matched_skills": [
-                "dossiersbeheer en rapportage (overdraagbaar)"
-            ],
+            "matched_skills": [],
             "missing_skills": [
                 "Java",
                 "Spring Boot",
@@ -24,9 +22,7 @@
         "input": "Je bent een uiterst kritische AI Recruiter. Je doel is een eerlijke vergelijking te maken tussen het CV en de Vacature en een motivatiebrief te schrijven volgens de VDAB-normen.\r\n---\r\nVACATURE:\r\nFunctietitel: Accountant / Boekhouder\nBedrijf: Deloitte Belgium, Gent\nContract: Voltijds, onbepaalde duur\n\nFunctiebeschrijving:\nDeloitte zoekt een accountant voor financiële rapportage en audit bij KMO-klanten.\n\nVereiste vaardigheden:\n- Bachelor Accountancy-Fiscaliteit of gelijkwaardig\n- Kennis van Belgisch boekhoudrecht en BTW\n- Ervaring met boekhoudpakketten (Winbooks, Exact, Bob)\n- Excel gevorderd\n- Analytisch en nauwkeurig\n- Vloeiend Nederlands en Frans\r\n---\r\nCV:\r\nLena Bourgeois\nGent, België\nlena.bourgeois@email.be | 0489 55 44 33\n\nWERKERVARING\nSportcoach / Personal Trainer (zelfstandig)\nFitclub Gent | januari 2018 – heden\n- Begeleiden van individuele en groepstrainingen\n- Opstellen van trainingsschema's op maat\n- Bijhouden van klantprogressie\n- Kassabeheer en maandelijkse facturatie aan klanten\n\nOPLEIDING\nBachelor Lichamelijke Opvoeding en Bewegingswetenschappen\nUniversiteit Gent | 2014 – 2018\n\nVAARDIGHEDEN\n- Trainingsplanning en begeleiding\n- Basis kassabeheer\n- Motiverende communicatie\n- Nederlands: moedertaal | Frans: basis | Engels: goed\r\n---\r\nSTRIKTE ANALYSE REGELS:\r\n1. MATCHED SKILLS: Alleen vaardigheden die LETTERLIJK of als DIRECT SYNONIEM in beide teksten voorkomen.\r\n2. MISSING SKILLS: Alleen concrete vereisten uit de vacature die ontbreken op het CV.\r\n3. MATCH PERCENTAGE:\r\n- 80-100%: Perfecte match.\r\n- 60-79%: Goede basis, mist details.\r\n- 40-59%: Verschillend vakgebied, maar overdraagbare technische skills.\r\n- <40%: Geen relevante match.\r\nRICHTLIJNEN VOOR DE VDAB-MOTIVATIEBRIEF:\r\nSchrijf een volledige brief in het veld 'motivation_letter' met deze opbouw:\r\n1. CONTACTGEGEVENS KANDIDAAT: Extraheer de volledige naam, adres, telefoonnummer en e-mail van de kandidaat uit het CV en zet deze bovenaan.\r\n2. CONTACTGEGEVENS BEDRIJF: Extraheer de bedrijfsnaam en locatie uit de vacature. Indien onbekend, gebruik \"De selectiecommissie\" of \"Uw organisatie\".\r\n3. ONDERWERP: Gebruik de exacte functietitel uit de vacature.\r\n4. AANSPREKING: Zoek naar een contactpersoon in de vacature. Indien gevonden: \"Geachte [Naam],\". Indien onbekend: \"Beste,\".\r\n5. INLEIDING: Schrijf een persoonlijke openingszin die direct de link legt tussen de kandidaat en de kernwaarde van de vacature.\r\n6. MOTIVATIE & TROEVEN:\r\n- Leg uit waarom de kandidaat specifiek voor dít bedrijf kiest op basis van de vacaturetekst.\r\n- Bewijs waarom de kandidaat geschikt is door specifieke projecten of prestaties van het CV te koppelen aan de eisen van de job.\r\n7. AFSLUITING: Gebruik een krachtige zin over de wens om de motivatie in een persoonlijk gesprek toe te lichten.\r\n8. GROET: Eindig met \"Met vriendelijke groet,\" gevolgd door de volledige naam van de kandidaat.\r\nSTRIKTE VOORWAARDEN:\r\n- Gebruik NOOIT placeholders (zoals [Naam]). Als informatie ontbreekt, formuleer de zin dan zodanig dat het wegvallen niet opvalt.\r\n- Gebruik \\\\n voor alle witregels en alinea-overgangen in de JSON string.\r\n- Schrijf in professioneel, foutloos Nederlands (u-vorm)\r\nGEEF UITSLUITEND JSON TERUG:\r\n{{\r\n\"match_percentage\": <int>,\r\n\"matched_skills\": [\"skill1\", \"skill2\"],\r\n\"missing_skills\": [\"skill1\", \"skill2\"],\r\n\"motivation_letter\": \"...\",\r\n\"match_text\": \"[VOLLEDIGE NAAM VAN CV] heeft een\r\n[PERFECTE | GOEDE | GEMIDDELDE | LAGE] match met de vacature.",
         "output": {
             "match_percentage": 12,
-            "matched_skills": [
-                "basis facturatie en kassabeheer (overdraagbaar)"
-            ],
+            "matched_skills": [],
             "missing_skills": [
                 "Bachelor Accountancy",
                 "Belgisch boekhoudrecht",
@@ -45,10 +41,8 @@
         "output": {
             "match_percentage": 44,
             "matched_skills": [
-                "REST API (basis)",
-                "Git",
-                "JavaScript/PHP als programmeertalen",
-                "Bachelor Informatica-adjacent"
+                "REST API",
+                "Git"
             ],
             "missing_skills": [
                 "Java",
@@ -70,10 +64,8 @@
             "match_percentage": 51,
             "matched_skills": [
                 "voorraadbeheer",
-                "logistieke proceskennis",
-                "WMS-systeemervaring (vergelijkbaar met ERP)",
-                "KPI-rapportage (basis)",
-                "Bachelor Logistiek"
+                "Bachelor Logistiek",
+                "KPI-rapportage (basis)"
             ],
             "missing_skills": [
                 "SAP ERP",
@@ -94,7 +86,6 @@
             "matched_skills": [
                 "contentcreatie en schrijfvaardigheid",
                 "SEO-basiskennis",
-                "CMS-gebruik (Drupal)",
                 "Master Communicatie-adjacent",
                 "Engels en Nederlands"
             ],
@@ -117,9 +108,7 @@
                 "Power BI",
                 "SQL en datamodellering",
                 "Python",
-                "Bachelor Informatica/Data Science",
-                "KPI-rapportage aan management",
-                "data-analyse"
+                "Bachelor Informatica/Data Science"
             ],
             "missing_skills": [
                 "2+ jaar BI-ervaring (nu 1,5 jaar)",
@@ -141,7 +130,6 @@
                 "REST API's",
                 "PostgreSQL",
                 "Docker",
-                "code reviews (basis mentoring)",
                 "Bachelor Informatica"
             ],
             "missing_skills": [
@@ -186,8 +174,7 @@
                 "gebruikersonderzoek (interviews, usability testing, A/B-testen)",
                 "samenwerking product owners en developers",
                 "Master Interaction Design",
-                "5 jaar UX-productdesignervaring",
-                "mentoring junior designers"
+                "5 jaar UX-productdesignervaring"
             ],
             "missing_skills": [
                 "specifieke SaaS-productervaring (Showpad is ook SaaS dus overlap)",
@@ -201,10 +188,7 @@
         "input": "Je bent een uiterst kritische AI Recruiter. Je doel is een eerlijke vergelijking te maken tussen het CV en de Vacature en een motivatiebrief te schrijven volgens de VDAB-normen.\r\n---\r\nVACATURE:\r\nFunctietitel: Digital Marketing Specialist\nBedrijf: Visit Flanders, Brussel\nContract: Voltijds, onbepaalde duur\n\nFunctiebeschrijving:\nVisit Flanders zoekt een Digital Marketing Specialist voor het beheren van campagnes en social media.\n\nVereiste vaardigheden:\n- Bachelor Marketing, Communicatie of gelijkwaardig\n- Kennis van Google Ads, Meta Ads en SEO\n- Ervaring met social media management (Hootsuite of Buffer)\n- Contentstrategie en copywriting\n- Google Analytics 4\n- Vloeiend Nederlands en Engels\r\n---\r\nCV:\r\nRemi Bogaerts\nBrussel, België\nremi.bogaerts@email.be | 0466 77 88 99\n\nWERKERVARING\nElektricien (zelfstandig)\nBogaerts Elektro bvba | april 2014 – heden\n- Installatie en onderhoud van elektrische installaties\n- Plaatsen van domoticasystemen en zonnepanelen\n- Offerten opstellen en klanten adviseren\n- Dagelijkse planning en materiaalbeheer\n\nOPLEIDING\nGraduaat Elektriciteit\nSyntra Brussel | 2012 – 2014\n\nVAARDIGHEDEN\n- Elektriciteit en domotica\n- Klantcommunicatie\n- Rijbewijs B+E\n- Nederlands: moedertaal | Frans: basis\r\n---\r\nSTRIKTE ANALYSE REGELS:\r\n1. MATCHED SKILLS: Alleen vaardigheden die LETTERLIJK of als DIRECT SYNONIEM in beide teksten voorkomen.\r\n2. MISSING SKILLS: Alleen concrete vereisten uit de vacature die ontbreken op het CV.\r\n3. MATCH PERCENTAGE:\r\n- 80-100%: Perfecte match.\r\n- 60-79%: Goede basis, mist details.\r\n- 40-59%: Verschillend vakgebied, maar overdraagbare technische skills.\r\n- <40%: Geen relevante match.\r\nRICHTLIJNEN VOOR DE VDAB-MOTIVATIEBRIEF:\r\nSchrijf een volledige brief in het veld 'motivation_letter' met deze opbouw:\r\n1. CONTACTGEGEVENS KANDIDAAT: Extraheer de volledige naam, adres, telefoonnummer en e-mail van de kandidaat uit het CV en zet deze bovenaan.\r\n2. CONTACTGEGEVENS BEDRIJF: Extraheer de bedrijfsnaam en locatie uit de vacature. Indien onbekend, gebruik \"De selectiecommissie\" of \"Uw organisatie\".\r\n3. ONDERWERP: Gebruik de exacte functietitel uit de vacature.\r\n4. AANSPREKING: Zoek naar een contactpersoon in de vacature. Indien gevonden: \"Geachte [Naam],\". Indien onbekend: \"Beste,\".\r\n5. INLEIDING: Schrijf een persoonlijke openingszin die direct de link legt tussen de kandidaat en de kernwaarde van de vacature.\r\n6. MOTIVATIE & TROEVEN:\r\n- Leg uit waarom de kandidaat specifiek voor dít bedrijf kiest op basis van de vacaturetekst.\r\n- Bewijs waarom de kandidaat geschikt is door specifieke projecten of prestaties van het CV te koppelen aan de eisen van de job.\r\n7. AFSLUITING: Gebruik een krachtige zin over de wens om de motivatie in een persoonlijk gesprek toe te lichten.\r\n8. GROET: Eindig met \"Met vriendelijke groet,\" gevolgd door de volledige naam van de kandidaat.\r\nSTRIKTE VOORWAARDEN:\r\n- Gebruik NOOIT placeholders (zoals [Naam]). Als informatie ontbreekt, formuleer de zin dan zodanig dat het wegvallen niet opvalt.\r\n- Gebruik \\\\n voor alle witregels en alinea-overgangen in de JSON string.\r\n- Schrijf in professioneel, foutloos Nederlands (u-vorm)\r\nGEEF UITSLUITEND JSON TERUG:\r\n{{\r\n\"match_percentage\": <int>,\r\n\"matched_skills\": [\"skill1\", \"skill2\"],\r\n\"missing_skills\": [\"skill1\", \"skill2\"],\r\n\"motivation_letter\": \"...\",\r\n\"match_text\": \"[VOLLEDIGE NAAM VAN CV] heeft een\r\n[PERFECTE | GOEDE | GEMIDDELDE | LAGE] match met de vacature.",
         "output": {
             "match_percentage": 20,
-            "matched_skills": [
-                "klantcommunicatie",
-                "offerten en klantadvies (overdraagbaar)"
-            ],
+            "matched_skills": [],
             "missing_skills": [
                 "Google Ads / Meta Ads",
                 "SEO",
