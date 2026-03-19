@@ -1,5 +1,6 @@
+""" Schemas for the OpenJob backend."""
+from typing import Optional, List
 from pydantic import BaseModel
-
 
 class MatchResponse(BaseModel):
     """ Response model for the match endpoint.
@@ -12,7 +13,7 @@ class MatchResponse(BaseModel):
         match_text (str): The text of the match.
     """
     match_percentage: int
-    matched_skills: list[str]
-    missing_skills: list[str]
+    matched_skills: List[str]
+    missing_skills: List[str]
     motivation_letter: str
-    match_text: str
+    match_text: Optional[str] = None
