@@ -6,14 +6,13 @@
 
 - **Frontend:** Next.js 16, TypeScript, shadcn/ui, Tailwind CSS.
 - **Backend:** FastAPI (Python), PDFPlumber.
-- **AI Engine:** Ollama (DeepSeek-R1 / Gemma3), Prompt Engineering.
-- **Infrastructure:** Docker (containerization).
+- **AI Engine:** Ollama (Unsloth fine-tuned Qwen2.5), Prompt Engineering.
 
 ## 🧠 Hoe het werkt
 
 1. **PDF Extraction:** De backend gebruikt `pdfplumber` om gestructureerde tekst uit geüploade CV's te halen.
 2. **Context Grounding:** De AI krijgt zowel de CV-tekst als de vacaturetekst binnen via een strikt gedefinieerde 'system prompt'.
-3. **Reasoning (DeepSeek-R1):** Het model analyseert overlappingen en hiaten in de tech-stack (bijv. herkent dat 'React.js' op het CV matcht met 'React' in de vacature).
+3. **Reasoning (Unsloth fine-tuned Qwen2.5):** Het model analyseert overlappingen en hiaten in de tech-stack (bijv. herkent dat 'React.js' op het CV matcht met 'React' in de vacature).
 4. **Structured Output:** De AI levert een JSON-response die door de frontend wordt vertaald naar een interactief dashboard.
 
 ## 📈 Technical Challenges & Reflection (AI & Data Engineering)
@@ -21,12 +20,13 @@
 Tijdens de ontwikkeling van OpenJob heb ik verschillende uitdagingen aangepakt die direct aansluiten:
 
 - **Hallucinatie Management:** Aanvankelijk verzon de AI skills (zoals Angular) die niet op het CV stonden. Ik heb dit opgelost door *Strict Grounding* in de prompt engineering toe te passen.
-- **Local AI Inference:** Gekozen voor Ollama om data-privacy te waarborgen (CV-data verlaat de lokale machine niet) en om kosten te minimaliseren.
-- **JSON Parsing:** Het filteren van de json-tags van DeepSeek-R1 om een valide JSON-response te garanderen voor de frontend.
+- **Local AI Inference:** Gekozen voor Ollama om data-privacy te waarborgen (CV-data verlaat de lokale machine en privé model niet) en om kosten te minimaliseren.
+- **JSON Parsing:** Het filteren van de json-tags van Unsloth fine-tuned Qwen2.5 om een valide JSON-response te garanderen voor de frontend.
 
 ## 🚀 Installatie
 
 1. **Backend:**
+De backend draait op FastAPI. Zorg ervoor dat je Python 3.10+ hebt geïnstalleerd.
 
    ```bash
    cd oj_backend
@@ -35,12 +35,14 @@ Tijdens de ontwikkeling van OpenJob heb ik verschillende uitdagingen aangepakt d
     ```
 
 2. **Local AI:**
+Qwen2.5 is gefinetuned met Unsloth, waarbij de dataset gericht was op CV-analyse. Het model noemt zichzelf 'open-jobs' op Hugging Face.
 
     ```bash
-    ollama pull deepseek-r1
+    ollama pull open-jobs
     ```
 
-3. **Frontend**
+3. **Frontend:**
+De frontend is gebouwd met Next.js en shadcn/ui. Na het installeren van de dependencies, start je de development server.
 
     ```bash
     cd oj_frontend
@@ -95,7 +97,3 @@ Hieronder volgt een overzicht van de evolutie van **OpenJob**, van de eerste fun
 
 - **Beschrijving:** Voltooiing van de applicatie met een interactieve **How To Use** pagina. Deze sectie legt stap-voor-stap de technische werking uit, van de PDF-parsing tot de AI-interpretatie, om de gebruiker volledig te onboarden.
 - **Focus:** User Enablement en technische transparantie.
-
-## 📝 Zelfreflectie
-
-...
