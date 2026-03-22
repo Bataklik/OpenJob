@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "accelerate>=1.13.0",
+    "anthropic>=0.86.0",
     "bitsandbytes>=0.49.2",
     "fastapi[standard]>=0.131.0",
     "langchain>=1.2.10",
@@ -13,6 +14,7 @@ dependencies = [
     "ollama>=0.6.1",
     "pdfplumber>=0.11.9",
     "peft>=0.18.1",
+    "pymupdf>=1.27.2",
     "trl>=0.24.0",
     "unsloth>=2026.3.4",
     "unsloth-zoo>=2026.3.2",

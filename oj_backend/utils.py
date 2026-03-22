@@ -8,6 +8,7 @@ from ollama import chat
 from fastapi import UploadFile, HTTPException
 
 from services.pdf_plumber import plumb_text_from_pdf
+from services.pymu_pdf import extract_with_pymupdf
 
 
 def generate_prompt(job_text: str, cv_text: str) -> str:
@@ -34,16 +35,14 @@ def generate_prompt(job_text: str, cv_text: str) -> str:
 
     RICHTLIJNEN VOOR DE VDAB-MOTIVATIEBRIEF:
         Schrijf een volledige brief in het veld 'motivation_letter' met deze opbouw:
-        1. CONTACTGEGEVENS KANDIDAAT: Extraheer de volledige naam, adres, telefoonnummer en e-mail van de kandidaat uit het CV en zet deze bovenaan.
-        2. CONTACTGEGEVENS BEDRIJF: Extraheer de bedrijfsnaam en locatie uit de vacature. Indien onbekend, gebruik "De selectiecommissie" of "Uw organisatie".
-        3. ONDERWERP: Gebruik de exacte functietitel uit de vacature.
-        4. AANSPREKING: Zoek naar een contactpersoon in de vacature. Indien gevonden: "Geachte [Naam],". Indien onbekend: "Beste,".
-        5. INLEIDING: Schrijf een persoonlijke openingszin die direct de link legt tussen de kandidaat en de kernwaarde van de vacature.
-        6. MOTIVATIE & TROEVEN:
+        1. AANSPREKING: Zoek naar een contactpersoon in de vacature. Indien gevonden: "Geachte [Naam],". Indien onbekend: begin de brief met "Beste,".
+        2. ONDERWERP: Gebruik de exacte functietitel uit de vacature als tweede regel na de aanspreking.
+        3. INLEIDING: Schrijf een persoonlijke openingszin die direct de link legt tussen de kandidaat en de kernwaarde van de vacature.
+        4. MOTIVATIE & TROEVEN:
         - Leg uit waarom de kandidaat specifiek voor dít bedrijf kiest op basis van de vacaturetekst.
         - Bewijs waarom de kandidaat geschikt is door specifieke projecten of prestaties van het CV te koppelen aan de eisen van de job.
-        7. AFSLUITING: Gebruik een krachtige zin over de wens om de motivatie in een persoonlijk gesprek toe te lichten.
-        8. GROET: Eindig met "Met vriendelijke groet," gevolgd door de volledige naam van de kandidaat.
+        5. AFSLUITING: Gebruik een krachtige zin over de wens om de motivatie in een persoonlijk gesprek toe te lichten.
+        6. GROET: Eindig met "Met vriendelijke groet," gevolgd door de volledige naam van de kandidaat.
 
         STRIKTE VOORWAARDEN:
         - Gebruik NOOIT placeholders (zoals [Naam]). Als informatie ontbreekt, formuleer de zin dan zodanig dat het wegvallen niet opvalt.
@@ -88,7 +87,10 @@ async def process_match(vacancy_text: str, cv_file: UploadFile):
         tmp_path = Path(tmp.name)
 
     try:
-        cv_content = plumb_text_from_pdf(tmp_path)
+        # cv_content = plumb_text_from_pdf(tmp_path)
+        cv_content = extract_with_pymupdf(tmp_path)
+
+        print(f"Extracted CV content: {cv_content} --- STOPPED ---")
         if not cv_content.strip():
             raise HTTPException(status_code=400, detail="Invalid CV file")
 
