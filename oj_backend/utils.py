@@ -6,59 +6,15 @@ import json
 from pathlib import Path
 from ollama import chat
 from fastapi import UploadFile, HTTPException
-
-from services.pdf_plumber import plumb_text_from_pdf
 from services.pymu_pdf import extract_with_pymupdf
+from system_prompt import PROMPT_TEMPLATE
+# from services.pdf_plumber import plumb_text_from_pdf
+
 
 
 def generate_prompt(job_text: str, cv_text: str) -> str:
-    return f"""
-    Je bent een uiterst kritische AI Recruiter. Je doel is een eerlijke vergelijking te maken tussen het CV en de Vacature en een motivatiebrief te schrijven volgens de VDAB-normen.
-
-    ---
-    VACATURE:
-    {job_text}
-
-    ---
-    CV:
-    {cv_text}
-    ---
-
-    STRIKTE ANALYSE REGELS:
-    1. MATCHED SKILLS: Alleen vaardigheden die LETTERLIJK of als DIRECT SYNONIEM in beide teksten voorkomen.
-    2. MISSING SKILLS: Alleen concrete vereisten uit de vacature die ontbreken op het CV.
-    3. MATCH PERCENTAGE:
-       - 80-100%: Perfecte match.
-       - 60-79%: Goede basis, mist details.
-       - 40-59%: Verschillend vakgebied, maar overdraagbare technische skills.
-       - <40%: Geen relevante match.
-
-    RICHTLIJNEN VOOR DE VDAB-MOTIVATIEBRIEF:
-        Schrijf een volledige brief in het veld 'motivation_letter' met deze opbouw:
-        1. AANSPREKING: Zoek naar een contactpersoon in de vacature. Indien gevonden: "Geachte [Naam],". Indien onbekend: begin de brief met "Beste,".
-        2. ONDERWERP: Gebruik de exacte functietitel uit de vacature als tweede regel na de aanspreking.
-        3. INLEIDING: Schrijf een persoonlijke openingszin die direct de link legt tussen de kandidaat en de kernwaarde van de vacature.
-        4. MOTIVATIE & TROEVEN:
-        - Leg uit waarom de kandidaat specifiek voor dít bedrijf kiest op basis van de vacaturetekst.
-        - Bewijs waarom de kandidaat geschikt is door specifieke projecten of prestaties van het CV te koppelen aan de eisen van de job.
-        5. AFSLUITING: Gebruik een krachtige zin over de wens om de motivatie in een persoonlijk gesprek toe te lichten.
-        6. GROET: Eindig met "Met vriendelijke groet," gevolgd door de volledige naam van de kandidaat.
-
-        STRIKTE VOORWAARDEN:
-        - Gebruik NOOIT placeholders (zoals [Naam]). Als informatie ontbreekt, formuleer de zin dan zodanig dat het wegvallen niet opvalt.
-        - Gebruik \\n voor alle witregels en alinea-overgangen in de JSON string.
-        - Schrijf in professioneel, foutloos Nederlands (u-vorm)
-
-        GEEF UITSLUITEND JSON TERUG:
-        {{
-            "match_percentage": <int>,
-            "matched_skills": ["skill1", "skill2"],
-            "missing_skills": ["skill1", "skill2"],
-            "motivation_letter": "...",
-            "match_text": "[VOLLEDIGE NAAM VAN CV] heeft een
-            [PERFECTE | GOEDE | GEMIDDELDE | LAGE] match met de vacature."
-        }}
-        """
+    """ Genereren van de prompt voor de AI Recruiter. """
+    return PROMPT_TEMPLATE.format(vacature=job_text, cv=cv_text)
 
 
 def extract_json(json_text: str):
