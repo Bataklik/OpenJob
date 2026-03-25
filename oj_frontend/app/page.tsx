@@ -98,6 +98,7 @@ export default function Home() {
                         matched={matched}
                         missing={missing}
                         letter={letter}
+                        isAnalyzing={isAnalyzing}
                     />
                 </div>
             </main>
