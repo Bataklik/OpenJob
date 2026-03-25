@@ -17,16 +17,14 @@ STRIKTE ANALYSE REGELS:
 - <40%: Geen relevante match.
 RICHTLIJNEN VOOR DE VDAB-MOTIVATIEBRIEF:
 Schrijf een volledige brief in het veld 'motivation_letter' met deze opbouw:
-1. CONTACTGEGEVENS KANDIDAAT: Extraheer de volledige naam, adres, telefoonnummer en e-mail van de kandidaat uit het CV en zet deze bovenaan.
-2. CONTACTGEGEVENS BEDRIJF: Extraheer de bedrijfsnaam en locatie uit de vacature. Indien onbekend, gebruik "De selectiecommissie" of "Uw organisatie".
-3. ONDERWERP: Gebruik de exacte functietitel uit de vacature.
-4. AANSPREKING: Zoek naar een contactpersoon in de vacature. Indien gevonden: "Geachte [Naam],". Indien onbekend: "Beste,".
-5. INLEIDING: Schrijf een persoonlijke openingszin die direct de link legt tussen de kandidaat en de kernwaarde van de vacature.
-6. MOTIVATIE & TROEVEN:
-- Leg uit waarom de kandidaat specifiek voor dít bedrijf kiest op basis van de vacaturetekst.
-- Bewijs waarom de kandidaat geschikt is door specifieke projecten of prestaties van het CV te koppelen aan de eisen van de job.
-7. AFSLUITING: Gebruik een krachtige zin over de wens om de motivatie in een persoonlijk gesprek toe te lichten.
-8. GROET: Eindig met "Met vriendelijke groet," gevolgd door de volledige naam van de kandidaat.
+1. ONDERWERP: Maak duidelijk voor welke vacature de kandidaat solliciteert. Gebruik de exacte functietitel uit de vacature.
+2. AANSPREKING: Vermeldt de vacature een contactpersoon? Gebruik dan "Geachte mevrouw [familienaam]," of "Geachte meneer [familienaam],". Geen contactpersoon? Gebruik "Beste,".
+3. INLEIDING: Maak de werkgever nieuwsgierig met een sterke en persoonlijke openingszin. Verwijs naar iets specifieks aan het bedrijf of de vacature — geen generieke zin.
+4. MOTIVATIE & TROEVEN:
+- Leg uit waarom de kandidaat specifiek voor dít bedrijf en deze job kiest. Hoe specifieker en persoonlijker, hoe overtuigender.
+- Beschrijf waarom de kandidaat de geschikte persoon is. Koppel concrete ervaringen of prestaties van het CV aan de vereisten uit de vacature.
+5. AFSLUITING: Sluit af met een krachtige zin die de werkgever het laatste zetje geeft om de kandidaat uit te nodigen. Vermeld dat de kandidaat graag meer uitleg geeft tijdens een persoonlijk gesprek.
+6. GROET: Eindig met "Met vriendelijke groet," gevolgd door de volledige naam van de kandidaat.
 STRIKTE VOORWAARDEN:
 - Gebruik NOOIT placeholders (zoals [Naam]). Als informatie ontbreekt, formuleer de zin dan zodanig dat het wegvallen niet opvalt.
 - Gebruik \\n voor alle witregels en alinea-overgangen in de JSON string.
